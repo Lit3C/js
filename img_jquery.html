@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+  <img src="http://files.softicons.com/download/game-icons/super-mario-icons-by-sandro-pereira/ico/Mushroom%20-%201UP.ico"/>
+  <img id="1" src="http://vignette4.wikia.nocookie.net/lapis/images/e/e5/Super_Mario_!.png/revision/latest?cb=20140615212235"/>
+  <img id="2" src="http://vignette3.wikia.nocookie.net/fantendo/images/0/03/1.Mario.png/revision/20120806222758"/>
+  <img id="3" src="http://vignette2.wikia.nocookie.net/simpsons/images/7/75/Mario.png/revision/latest?cb=20100202173945"/>
+  <img id="4" src="http://vignette2.wikia.nocookie.net/videogames-fanon/images/7/75/Mario.png/revision/latest?cb=20120621090931"/>
+  <img id="5" src="http://vignette2.wikia.nocookie.net/sonic/images/2/27/Mario_56.png/revision/20100606223512"/>
+  <img id="6" src="http://vignette3.wikia.nocookie.net/fantendo/images/1/1d/Mario!!!!!!!!!!!!!!!!.png/revision/latest?cb=20110813093353"/>
+  <img id="7" src="http://vignette4.wikia.nocookie.net/mario/images/d/d4/Tanooki_Mario_Artwork_-_Super_Mario_3D_Land.png/revision/latest?cb=20111012225437"/>
+  <script>
+    for (var t=0;t<8;t++){
+  $('#'+t).fadeOut(0);
+}
+
+$('img').css('width','300px').css('margin','20px');
+
+var i=0;
+$('img').on('click',function(){
+  i++;
+    $("img").fadeOut(0,function(){
+       $('#'+i).fadeIn(0);
+    });
+});
+  </script>
+</body>
+</html>

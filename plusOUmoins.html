@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <style>
+    *{
+      margin : 10px;
+    }
+    div {
+      height : 50px;
+      border : 1px solid black;
+      background-color : #D8D8D8;
+    }
+  </style>
+</head>
+<body>
+  <div id="maDiv"> </div>
+  <button onclick="changeSize(-50)">-</button>
+  <button onclick="changeSize(50)">+</button>
+
+  <script>
+    var boite = document.getElementById("maDiv");
+
+    var size = "200";
+    boite.style.width=size+"px";
+
+    function changeSize(i){
+      console.log("avant la fct :"+size);
+      size= parseInt(Number(size)+i);
+      boite.style.width=size+"px";
+      console.log("après la fct :"+size);
+    }
+  </script>
+</body>
+</html>

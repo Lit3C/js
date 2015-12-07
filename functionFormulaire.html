@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+<!--_______________________________________________________CSS___________________-->
+  <style>
+  fieldset{
+    padding : 20px;
+    margin:20px;
+
+  }
+  label {
+    display: inline-block;
+    margin: 0px 30px 0px 0px;
+  }
+  #update {
+    background-color: #E6E6E6;
+    height : 50px;
+  }
+  input, select {
+    margin-left : 10px;
+    padding: 5px 10px;
+    width: 250px;
+  }
+  #form {
+    background-color: #D8D8D8;
+  }
+  label {
+    width:180px;
+    padding: 0px;
+  }
+  </style>
+</head>
+<!--_______________________________________________________HTML__________________-->
+<body>
+  <fieldset id="form">
+    <div><label>NOM</label>
+      <input id="surname"/>
+    </div>
+    <div><label>PRENOM</label>
+      <input id="firstname"/>
+    </div>
+    <div><label>VILLE</label>
+      <select id="ville">
+        <option id="1">Londres
+        <option id="2">Paris
+        <option id="3">Tokyo
+        <option id="4">20 mille lieues sous les mers
+      </select>
+    </div>
+  </fieldset>
+  <button onclick="modif()">Mettre à jour</button>
+  <button onclick="annul()">Annuler</button>
+<!--_______________________________________________________JAVASCRIPT____________-->
+  <script>
+    var identification = {
+      nom:"Dupont",
+      prenom:"Martin",
+      ville:"Paris"
+    };
+
+
+    var saisieNom= document.getElementById("surname");
+      saisieNom.value = identification.nom;
+    var saisiePrenom = document.getElementById("firstname");
+      saisiePrenom.value = identification.prenom;
+    var saisieVille = document.getElementById("ville");
+      saisieVille.value= identification.ville;
+
+    function modif (){
+      var saisieNom= document.getElementById("surname");
+        saisieNom.value = "L'Eponge";
+        identification.nom = "L'Eponge";
+      var saisiePrenom = document.getElementById("firstname");
+        saisiePrenom.value = "Bob";
+        identification.prenom="Bob";
+      var saisieVille = document.getElementById("ville");
+        saisieVille.value= "20 mille lieues sous les mers";
+        identification.ville = "20 mille lieues sous les mers";
+      console.log(identification);
+    }
+    function annul (){
+      var saisieNom= document.getElementById("surname");
+        saisieNom.value = identification.nom;
+        identification.nom = "Dupont";
+      var saisiePrenom = document.getElementById("firstname");
+        saisiePrenom.value = identification.prenom;
+        identification.prenom = "Martin";
+      var saisieVille = document.getElementById("ville");
+        saisieVille.value= identification.ville;
+        identification.ville = "Paris";
+      console.log(identification);
+    }
+
+
+
+
+  </script>
+</body>
+</html>

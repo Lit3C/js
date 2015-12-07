@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="fr_FR">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+
+		body{
+			font-family: sans-serif;
+		}
+
+		.boitePays{
+			width:150px;
+			height:50px;
+			background-color: #CCC;
+			color:black;
+		}
+
+		.selected{
+			background-color: #6A0;
+			color:white;
+		}
+
+		#details{
+			margin:20px;
+			padding:20px;
+			background-color: #DFA;
+			margin:0 auto;
+			font-size: 1.3em;
+		}
+
+
+	</style>
+</head>
+<body>
+
+	<div id="container">
+		<div class="boitePays">France</div>
+		<div class="boitePays">Italie</div>
+		<div class="boitePays">Espagne</div>
+		<div class="boitePays">Portugal</div>
+	</div>
+
+	<div id="details">
+    <button onclick="afficheDetails(-1)">Précédent</button>
+    <button onclick="afficheDetails(+1)">Suivant</button>
+		<div id="boiteNom" ></div>
+		<div id="boiteCapitale" ></div>
+
+	</div>
+
+	<script type="text/javascript">
+
+		var pays = [
+			{ nom:'France' , capitale:'Paris'},
+			{ nom:'Italie' , capitale:'Rome'},
+			{ nom:'Espagne' , capitale:'Madrid'},
+			{ nom:'Portugal' , capitale:'Lisbonne'}
+		]
+
+        var boites = document.getElementsByClassName("boitePays");
+        var bNom = document.getElementById("boiteNom");
+        var bCap = document.getElementById("boiteCapitale");
+
+        boites[0].classList.add("selected");
+        bNom.textContent = pays[0].nom;
+        bCap.textContent = pays[0].capitale;
+
+        var u = 0;
+
+		function afficheDetails(indexPays){
+          console.log("Au début de la fonction :"+u);
+          if (u >= boites.length-1){
+            return u = -1;
+          }
+		  bNom.textContent = pays[u+indexPays].nom;
+          bCap.textContent = pays[u+indexPays].capitale;
+          console.log("u+indexPays ="+(u+indexPays));
+          for (var i=0;i<boites.length;i++) {
+            boites[i].classList.remove("selected");
+          }
+          boites[u+indexPays].classList.add("selected");
+          return u = u+indexPays ;
+          console.log("A la fin de la fonction :"+u);
+		}
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body id="body">
+    <script>
+    var colors = ['red', 'pink', 'green', 'yellow', 'cyan'];
+
+var bodyBG = document.getElementById("body");
+
+
+function changeBG(button){
+  console.log("target: "+ button.target.style.backgroundColor);
+  body.style.backgroundColor = button.target.style.backgroundColor;
+}
+
+for ( var i in colors){
+  console.log(i+" "+colors[i]);
+
+  var buttonColor = document.createElement("div");
+  buttonColor.addEventListener("click",changeBG);
+  bodyBG.appendChild(buttonColor);
+
+  buttonColor.style.margin="10px";
+  buttonColor.style.padding="30px 0%";
+  buttonColor.style.textAlign="center";
+  buttonColor.textContent=colors[i];
+  buttonColor.style.width = "60px";
+  buttonColor.style.height = "20px";
+  buttonColor.style.border = "1px solid black";
+  buttonColor.style.borderRadius= "50px";
+  buttonColor.style.backgroundColor = colors[i];
+}
+    </script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ToDO List</title>
+  </head>
+  <body>
+    <input id="maTache">
+    <button onclick="ajoute()">Ajouter une tache</button>
+    <ul id="listTaches"></ul>
+<!--____________________________________JAVASCRIPT___-->
+    <script>
+      function ajoute(){
+        var recupMaTache = document.getElementById("maTache");
+        var addTask = document.createElement("li");
+        addTask.innerText = recupMaTache.value;
+        listTaches.appendChild(addTask);
+        recupMaTache.value = " ";
+      }
+    </script>
+  </body>
+</html>

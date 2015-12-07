@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ListeEcoles</title>
+</head>
+<body id="body">
+
+</body>
+<script>
+var simplon = [
+{
+  ville:'Lyon',
+  adresse:'352 cours Emille Zola',
+  participants:[
+    {
+      nom:"Dupont",
+      prenom:"Pierre"
+    },
+    {
+      nom:"Durant",
+      prenom:"Léa"
+    },
+    {
+      nom:"Henri",
+      prenom:"Luc"
+    }
+  ]
+},
+  {
+  ville:'Montreuil',
+  adresse:'55 rue de Vincennes',
+  participants:[
+    {
+      nom:"Martin",
+      prenom:"Bob"
+    },
+    {
+      nom:"Petit",
+      prenom:"Louise"
+    },
+    {
+      nom:"Dumont",
+      prenom:"Joe"
+    }
+  ]
+}
+];
+
+for (var ecole in simplon){
+  //console.log("ville de Simplon: "+agence+"/"+simplon[agence],
+               // "----------");
+  var body = document.getElementById("body");
+  var boite = document.createElement("div");
+      body.appendChild(boite);
+
+  boite.style.backgroundColor = "#F2F2F2";
+  boite.style.width = "80%";
+  boite.style.height = "200px";
+  boite.style.border = "1px solid black";
+  boite.style.margin = "10px";
+  boite.style.padding = "10px";
+
+  var h1 = document.createElement("h1");
+      boite.appendChild(h1);
+      h1.textContent = simplon[ecole].ville;
+
+  var p1 = document.createElement("p");
+      boite.appendChild(p1);
+      p1.textContent = "adresse: "+simplon[ecole].adresse;
+
+
+  for(var n in simplon[ecole].participants){
+    var p2 = document.createElement("p");
+      p2.style.margin="2px";
+      boite.appendChild(p2);
+      p2.style.backgroundColor ="#FFF";
+
+      console.log("étudiant n°"+n+"/"+simplon[ecole].participants[n]);
+      p2.textContent = "Elève n°"+(Number(n)+1)+": "+simplon[ecole].participants[n].nom+
+        " "+simplon[ecole].participants[n].prenom;
+  }
+
+
+}
+
+</script>
+</html>

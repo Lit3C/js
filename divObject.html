@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body id="body">
+
+  </body>
+  <script>
+  var divs = [
+    {
+      couleur:'red',
+      largeur:200,
+      hauteur:40,
+      texte:"div rouge"
+    },
+    {
+      couleur:'blue',
+      largeur:100,
+      hauteur:80,
+      texte:"div bleu"
+    },
+    {
+      couleur:'orange',
+      largeur:300,
+      hauteur:10,
+      texte:"div orange"
+    },
+  ];
+
+
+
+
+  for(var propriete in divs){
+    console.log("div"+" "+propriete+":"+divs[propriete]);
+    var body = document.getElementById("body");
+    var boite = document.createElement("div");
+    body.appendChild(boite);
+
+    boite.style.backgroundColor = divs[propriete].couleur;
+    boite.style.width = divs[propriete].largeur+"px";
+    boite.style.height = divs[propriete].hauteur+"px";
+    boite.textContent = divs[propriete].texte;
+
+  }
+  </script>
+</html>

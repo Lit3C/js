@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>UserList</title>
+<!--_________________________________     http://jsbin.com/nidenayewo/edit?html,js,console,output     _________________________-->
+  <style>
+    form {
+      margin-top : 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <form>
+    <div>
+    <label for="chpNom" >Nom</label>
+      <input id="champNom" />
+    </div>
+    <div>
+    <label for="chpPrenom" >Prenom</label>
+      <input id="champPrenom" />
+    </div>
+    <button type="button" onclick="add()">Ajouter</button>
+  </form>
+    <ul id="userList">
+      <li class="toSupp">Jean Dupond <button type="button" onclick="supp(0)">x</button></li>
+    </ul>
+    <script>
+      var users = [
+        {
+          nom:'Dupont',
+          prenom:'Jean'
+        }
+      ];
+      var maListe = document.getElementById("userList");
+
+      /*function newButton(){
+      var createButton = document.createElement("button");
+        createButton.setAttribute("type","button");
+        createButton.setAttribute("onclick","supp()");                  // numéro supp() à définir pour qu'il change
+        createButton.textContent = "x";
+      }*/
+
+      var i = 0;
+
+      var liSupp = document.getElementsByClassName("toSupp");
+      function supp(position){
+        var objetRetire = users.splice(position,1);
+        console.log("position: "+position,
+                    "objet retiré: "+objetRetire,
+                    "contenu à supp: "+liSupp[position].textContent,
+                   "Contenu de mon tableau d'objet users: ",
+                    users);
+        maListe.removeChild(liSupp[position]);
+
+      }
+
+      function add(){
+        i++;
+        console.log(i);
+                //-----------------
+        var addName = document.createElement("li");                     //Je crée une li sur click
+            addName.setAttribute("class","toSupp");                        // Je lui définis une class="toSupp"
+        /*
+        addNamne.class="cequejeveux";
+
+
+        */var recupNom = document.getElementById("champNom");       // Je récupère la saisie Nom
+        var recupPrenom = document.getElementById("champPrenom"); //Je récupère la saisie Prénom
+        //-----------------
+        addName.textContent = recupNom.value +" "+ recupPrenom.value;         // Je définis dans ma liste le nom et prénom saisis
+        var objetSaisie = {nom:recupNom.value,prenom:recupPrenom.value};  // Je définis ma var objet avec le nom et prenom saisis
+        users.push(objetSaisie);                               // Je rajoute mon objet dans mon tableau d'objet users
+        //-----------------
+        var createButton = document.createElement("button");
+        createButton.setAttribute("type","button");
+        createButton.setAttribute("onclick","supp("+users.indexOf(objetSaisie)+")");
+        createButton.textContent = "x";
+        //-----------------
+        addName.appendChild(createButton); // J'insère mon bouton que j'ai crée (avec ma var createButton)
+        maListe.appendChild(addName);                                   // J'insère ma li dans ma ul
+        console.log("mon createButton: ",createButton,
+                    "contenu de AddName: "+addName,
+                    "Contenu de mon ajout: "+addName.textContent,
+                    "Contenu de ma Liste: "+maListe.textContent,
+                    "Contenu de mon tableau d'objet users: ",
+                    users,
+                    "position dans le tableau: "+users.indexOf(objetSaisie),
+                    "-----------------");
+        document.getElementById("champNom").value = " ";
+        document.getElementById("champPrenom").value = " ";
+      }
+
+
+    </script>
+</body>
+</html>

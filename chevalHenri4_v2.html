@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script>
+    //noprotect
+    var questions = [
+      "couleur du cheval blanc d'henri IV?",
+      "combien de 7 nains?",
+      "le petit poucet est il grand ?",
+      "de quel couleur est la cape du chaperon rouge ?"
+    ];
+    var questionsRetirees = [];
+
+    var reponses = [
+      "blanc",
+      "7",
+      "non",
+      "rouge"
+    ];
+
+
+    var score = 0;
+    var iMax = questions.length;
+
+
+    function quizz(){
+      for(var i=1 ; i<=iMax ; i++){
+        //------------------------------
+        var numberRandom = Math.round(Math.random()*(questions.length-1));
+        var askRandom = questions[numberRandom];
+        var repRandom = reponses[numberRandom];
+        //------------------------------
+        var repUser = prompt(askRandom+"\n"+"try n°"+i+"\n"+"la position Random : "+numberRandom);
+        var retire = questions.splice(questions.indexOf(askRandom),1);
+        questionsRetirees.push(retire);
+        console.log("Boucle n° : "+i,
+                    "Question Posée : "+askRandom,
+                    "la position Random : "+numberRandom,
+                    "Je retire : "+retire,
+                    "Questions Retirées : ",questionsRetirees,
+                    "Listes des questions : ",questions,
+                    "----------------------------------------------------------------");
+          /*if (repUser === repRandom){
+            score++;
+            console.log("votre score est de : "+score);
+          }else{
+            console.log("votre score est de : "+score);
+          }*/
+      }
+    }
+    quizz();
+
+    </script>
+  </body>
+</html>

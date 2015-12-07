@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+<!--_______________________________________________________CSS___________________-->
+  <style>
+    fieldset{
+      padding : 20px;
+      margin:20px;
+
+    }
+    label {
+      display: inline-block;
+      margin: 0px 30px 0px 0px;
+    }
+    #update {
+      background-color: #E6E6E6;
+      height : 50px;
+    }
+    input, select {
+      margin-left : 10px;
+      padding: 5px 10px;
+      width: 230px;
+    }
+    #form {
+      background-color: #D8D8D8;
+    }
+    label {
+      width:180px;
+      padding: 0px;
+    }
+  </style>
+</head>
+<!--_____________________________________________________________HTML__________________-->
+<body>
+  <fieldset id="form">
+    <div><label>NOM</label>
+      <input id="surname"/>
+    </div>
+    <div><label>PRENOM</label>
+      <input id="firstname"/>
+    </div>
+    <div><label>VILLE</label>
+      <input id="city"/>
+    </div>
+  </fieldset>
+  <p>---------------------------------------------------------------------------------</p>
+  <fieldset id="form2">
+    <legend> Nouvelle saisie</legend>
+    <div><label>Votre nouveau NOM</label>
+      <input id="newNom"/>
+    </div>
+    <div><label>Votre nouveau PRENOM</label>
+      <input id="newPrenom"/>
+    </div>
+    <div><label>Votre nouvelle VILLE</label>
+      <select id="newVille">
+        <option id="1">Londres
+        <option id="2">Paris
+        <option id="3">Tokyo
+        <option id="4">20 mille lieues sous les mers
+      </select>
+    </div>
+  </fieldset>
+  <button onclick="modif()">Mettre à jour</button>
+  <button onclick="annul()">Annuler</button>
+<!--_____________________________________________________________JAVASCRIPT____________-->
+  <script>
+    var identification = {
+      nom:"Dupont",
+      prenom:"Martin",
+      ville:"Paris"
+    };
+
+
+    var saisieNom = document.getElementById("surname");
+      saisieNom.value = identification.nom;
+    var saisiePrenom = document.getElementById("firstname");
+      saisiePrenom.value = identification.prenom;
+    var saisieVille = document.getElementById("city");
+      saisieVille.value= identification.ville;
+
+
+
+
+    function modif (){
+      console.log("coordonnées avant modification : ",identification);
+      var saisieNewNom = document.getElementById("newNom").value;
+        identification.nom = saisieNewNom;
+        document.getElementById("surname").value = saisieNewNom;
+      var saisieNewPrenom = document.getElementById("newPrenom").value;
+        identification.prenom = saisieNewPrenom;
+        document.getElementById("firstname").value = saisieNewPrenom;
+      var saisieNewVille = document.getElementById("newVille").value;
+        identification.ville = saisieNewVille;
+        document.getElementById("city").value = saisieNewVille;
+      console.log("coordonnées avant modification : ",identification);
+    }
+
+    function annul (){
+      var saisieNom= document.getElementById("surname").value;
+        identification.nom = "Dupont";
+        document.getElementById("surname").value = "Dupont";
+      var saisiePrenom = document.getElementById("firstname");
+        identification.prenom = "Martin";
+        document.getElementById("firstname").value = "Martin";
+      var saisieVille = document.getElementById("ville");
+        identification.ville = "Paris";
+        document.getElementById("city").value = "Paris";
+      console.log(identification);
+    }
+
+
+
+
+  </script>
+</body>
+</html>
