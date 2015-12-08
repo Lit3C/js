@@ -3,7 +3,7 @@
   <head>
     <!--____ lien GOOGLE DRIVE : https://6d600ee90c9dbc3db6a6e141a037dbd521473708-www.googledrive.com/host/0B3BC9WJRQnAuVTVEbTZYM2xuYlE ____________ -->
     <!--____ lien GIT PREVIEW : http://htmlpreview.github.io/?https://github.com/simplon-linap/js/blob/master/maquette_sem8.html ____________ -->
-    
+
     <meta charset="utf-8">
     <title>Maquette</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
@@ -56,62 +56,59 @@
           banner.appendChild(p);
           p.textContent="lorem ipsum（ロレム・イプサム、略してリプサム lipsum ともいう）とは、出版、ウェブデザイン、グラフィックデザインなどの諸分野において使用されている典型的なダミーテキスト。";
 
-//-------------------------------------------------------------------FUNCTION AJOUTE ARTICLE----------
-var i=1;
 
+var i=1;
+//-------------------------------------------------------------------BOUTON AJOUTE ARTICLE----------
 var buttonPlus = document.createElement("button");
     buttonPlus.setAttribute("type","button");
-    buttonPlus.setAttribute("onclick","ajoute("+Number(i+i)+")");
+    buttonPlus.setAttribute("onclick","ajoute("+Number(i+1)+")");
 
     buttonPlus.textContent = "+ d'articles";
     buttonPlus.style.width="10%";
     buttonPlus.style.margin = "0px 45%";
-
+//-------------------------------------------------------------------FUNCTION AJOUTE ARTICLE----------
       function ajoute(i){
-        console.log(i);
-        var article = document.createElement("div");
-            article.setAttribute("id","article");
-            body.appendChild(article);
-            article.style.height="300px";
-            article.style.padding="10px";
+          console.log(i);
+          var article = document.createElement("div");
+              article.setAttribute("id","article");
+              body.appendChild(article);
+              article.style.height="300px";
+              article.style.padding="10px";
 
-        var img = document.createElement("div");
-            img.setAttribute("id","img");
-            img.setAttribute("class","col-md-6 col-sd-6");
-            article.appendChild(img);
-            img.textContent="400x300";
-            img.style.fontSize="2em";
-            img.style.textAlign="center";
-            img.style.backgroundColor="#CCCCCC";
-            img.style.width="30%";
-            img.style.height="220px";
-            img.style.margin="30px 10%";
-            img.style.padding="90px 0px";
-            img.style.color="#959595";
-            img.style.border = "2px solid #C4C4C4";
+          var img = document.createElement("div");
+              img.setAttribute("id","img");
+              img.setAttribute("class","col-md-6 col-sd-6");
+              article.appendChild(img);
+              img.textContent="400x300";
+              img.style.fontSize="2em";
+              img.style.textAlign="center";
+              img.style.backgroundColor="#CCCCCC";
+              img.style.width="30%";
+              img.style.height="220px";
+              img.style.margin="30px 10%";
+              img.style.padding="90px 0px";
+              img.style.color="#959595";
+              img.style.border = "2px solid #C4C4C4";
 
-        var description = document.createElement("p");
-            description.setAttribute("id","description");
-            img.setAttribute("class","col-md-6 col-sd-6");
-            article.appendChild(description);
-            description.style.padding="50px";
-            //description.style.setProperty=("float","right");
-            //description.style.cssFloat = "right";
-            //description.style.styleFloat = "right";
+          var description = document.createElement("p");
+              description.setAttribute("id","description");
+              img.setAttribute("class","col-md-6 col-sd-6");
+              article.appendChild(description);
+              description.style.padding="50px";
+              //description.style.setProperty=("float","right");
+              //description.style.cssFloat = "right";
+              //description.style.styleFloat = "right";
 
-        var descrTitle = document.createElement("h2");
-            description.appendChild(descrTitle);
-            descrTitle.textContent="Titre de la Photo"+" "+ Number(i);
+          var descrTitle = document.createElement("h2");
+              description.appendChild(descrTitle);
+              descrTitle.textContent="Titre de la Photo"+" "+ Number(i);
 
-        var descrText = document.createElement("p");
-            description.appendChild(descrText);
-            descrText.textContent="文書のレイアウトを決める際、テキストの入る部分はべた塗りや記号にするよりは実際の出来上がりに近いフォントによる文章を入れた方が完成時の姿を想像しやすい。しかし一方で、文章が入ると文書全体のデザインよりも文章の内容の方に意識が集中してしまう。そこで欧米などの出版業界やデザイン業界ではタイポグラフィやレイアウトにプレゼンテーションの焦点を当てるため、意味の全くない文字の羅列をテキスト部分に流し込む。";
+          var descrText = document.createElement("p");
+              description.appendChild(descrText);
+              descrText.textContent="文書のレイアウトを決める際、テキストの入る部分はべた塗りや記号にするよりは実際の出来上がりに近いフォントによる文章を入れた方が完成時の姿を想像しやすい。しかし一方で、文章が入ると文書全体のデザインよりも文章の内容の方に意識が集中してしまう。そこで欧米などの出版業界やデザイン業界ではタイポグラフィやレイアウトにプレゼンテーションの焦点を当てるため、意味の全くない文字の羅列をテキスト部分に流し込む。";
 
-        body.appendChild(buttonPlus);
-
-        i++;
-        console.log("i avant return: "+i)
-        return i;
+          body.appendChild(buttonPlus);
+          console.log("i avant return: "+i);
   }
       ajoute(i);
 
