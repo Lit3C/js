@@ -23,18 +23,23 @@
     legend {
       background-color:#EEE;
       width:100%;
+      border-radius: 5px 5px 0px 0px;
+      padding: 0px 20px;
     }
     div{
       margin: 20px;
     }
-    #add{
+    #ajout{
       background-color: #2B74B1;
       border: 2px solid #2B74B1;
       padding: 10px;
       color: #FFF;
+      margin: 0px 0px 20px 20px;
+      font-weight: bold;
     }
     .delete {
       background-color: #EE9D0D;
+      border: 2px solid #EE9D0D;
       padding: 0px 5px;
       border-radius: 3px;
       color:#FFF;
@@ -42,7 +47,18 @@
     .col-md-3{
       margin:30px;
       padding:0px;
-}
+    }
+    label {
+      display : block;
+    }
+    input{
+      padding:10px;
+      width: 100%;
+    }
+    .col-md-1{
+      /*float: right;*/
+
+    }
   </style>
 </head>
 <body>
@@ -57,10 +73,10 @@
     <label for="chpPrenom" >Prenom</label>
       <input id="champPrenom" />
     </div>
-    <button id="add" type="button" onclick="add()">Ajouter</button>
+    <button id="ajout" type="button" onclick="add()">Ajouter</button>
   </form>
     <ul id="userList" class="col-md-3">
-      <li class="toSupp">Jean Dupond <button class="delete" type="button" onclick="supp(0)">x</button></li>
+      <li class="toSupp">Jean Dupond <button class="delete col-md-1" type="button" onclick="supp(0)">x</button></li>
     </ul>
     <script>
       var users = [
@@ -70,13 +86,6 @@
         }
       ];
       var maListe = document.getElementById("userList");
-
-      /*function newButton(){
-      var createButton = document.createElement("button");
-        createButton.setAttribute("type","button");
-        createButton.setAttribute("onclick","supp()");                  // numéro supp() à définir pour qu'il change
-        createButton.textContent = "x";
-      }*/
 
       var i = 0;
 
@@ -98,11 +107,8 @@
                 //-----------------
         var addName = document.createElement("li");                     //Je crée une li sur click
             addName.setAttribute("class","toSupp");                        // Je lui définis une class="toSupp"
-        /*
-        addNamne.class="cequejeveux";
 
-
-        */var recupNom = document.getElementById("champNom");       // Je récupère la saisie Nom
+        var recupNom = document.getElementById("champNom");       // Je récupère la saisie Nom
         var recupPrenom = document.getElementById("champPrenom"); //Je récupère la saisie Prénom
         //-----------------
         addName.textContent = recupNom.value +" "+ recupPrenom.value;         // Je définis dans ma liste le nom et prénom saisis
@@ -111,7 +117,7 @@
         //-----------------
         var createButton = document.createElement("button");
         createButton.setAttribute("type","button");
-        createButton.class="delete";
+        createButton.setAttribute("class","delete col-md-1");
         createButton.setAttribute("onclick","supp("+users.indexOf(objetSaisie)+")");
         createButton.textContent = "x";
         //-----------------
