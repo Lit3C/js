@@ -56,7 +56,6 @@
       width: 100%;
     }
     .col-md-1{
-      /*float: right;*/
       position: absolute;
       margin-left: 20px;
     }
@@ -77,7 +76,7 @@
     <button id="ajout" type="button" onclick="add()">Ajouter</button>
   </form>
     <ul id="userList" class="col-md-3">
-      <li class="toSupp">Jean Dupond <button class="delete col-md-1" type="button" onclick="supp(0)">x</button></li>
+      <li id="li0" class="toSupp">Jean Dupond <button class="delete col-md-1" type="button" onclick="supp(0)">x</button></li>
     </ul>
     <script>
       var users = [
@@ -89,41 +88,41 @@
       var maListe = document.getElementById("userList");
 
       var i = 0;
-
-      var liSupp = document.getElementsByClassName("toSupp");
-      function supp(position){
-        var objetRetire = users.splice(position,1);
-        console.log("position: "+position,
+//-------------------------------------------------------------------------FONCTION SUPP
+      function supp(a){
+        var maLi=document.getElementById("li"+a);
+        var objetRetire = users.splice(a,1);
+        console.log("position: "+a,
                     "objet retiré: "+objetRetire,
-                    "contenu à supp: "+liSupp[position].textContent,
                    "Contenu de mon tableau d'objet users: ",
                     users);
-        maListe.removeChild(liSupp[position]);
+        maLi.parentNode.removeChild(maLi);
 
       }
-
+//--------------------------------------------------------------------------FONCTION ADD
       function add(){
         i++;
         console.log(i);
-                //-----------------
-        var addName = document.createElement("li");                     //Je crée une li sur click
-            addName.setAttribute("class","toSupp");                        // Je lui définis une class="toSupp"
+        //-----------------
+        var addName = document.createElement("li");
+            addName.setAttribute("id","li"+i);
+            addName.setAttribute("class","toSupp");
 
-        var recupNom = document.getElementById("champNom");       // Je récupère la saisie Nom
-        var recupPrenom = document.getElementById("champPrenom"); //Je récupère la saisie Prénom
+        var recupNom = document.getElementById("champNom");
+        var recupPrenom = document.getElementById("champPrenom");
         //-----------------
-        addName.textContent = recupNom.value +" "+ recupPrenom.value;         // Je définis dans ma liste le nom et prénom saisis
-        var objetSaisie = {nom:recupNom.value,prenom:recupPrenom.value};  // Je définis ma var objet avec le nom et prenom saisis
-        users.push(objetSaisie);                               // Je rajoute mon objet dans mon tableau d'objet users
-        //-----------------
+        addName.textContent = i+" "+recupNom.value +" "+ recupPrenom.value;
+        var objetSaisie = {nom:recupNom.value,prenom:recupPrenom.value};
+        users.push(objetSaisie);
+        //-----------------var button
         var createButton = document.createElement("button");
         createButton.setAttribute("type","button");
         createButton.setAttribute("class","delete col-md-1");
-        createButton.setAttribute("onclick","supp("+users.indexOf(objetSaisie)+")");
+        createButton.setAttribute("onclick","supp("+i+")");
         createButton.textContent = "x";
         //-----------------
-        addName.appendChild(createButton); // J'insère mon bouton que j'ai crée (avec ma var createButton)
-        maListe.appendChild(addName);                                   // J'insère ma li dans ma ul
+        addName.appendChild(createButton);
+        maListe.appendChild(addName);
         console.log("mon createButton: ",createButton,
                     "contenu de AddName: "+addName,
                     "Contenu de mon ajout: "+addName.textContent,
