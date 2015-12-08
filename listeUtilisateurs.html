@@ -4,15 +4,47 @@
   <meta charset="utf-8">
   <title>UserList</title>
 <!--_________________________________     http://jsbin.com/nidenayewo/edit?html,js,console,output     _________________________-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
   <style>
+    *{
+      margin:0;
+      padding:0;
+}
+    html{margin:0;padding:0;}
     form {
-      margin-top : 50px;
+      border : 1px solid lightgrey;
+      width : 100px;
     }
+    legend {
+      background-color:#EEE;
+      width:100%;
+    }
+    div{
+      margin: 20px;
+    }
+    #add{
+      background-color: #2B74B1;
+      border-radius: 2px;
+      border: 2px solid #2B74B1;
+      padding: 10px;
+      color: #FFF;
+    }
+    .delete {
+      background-color: #EE9D0D;
+      padding: 0px 5px;
+      border-radius: 3px;
+      color:#FFF;
+    }
+    .col-md-3{
+      margin:30px;
+      padding:0px;
+}
   </style>
 </head>
 <body>
 
-  <form>
+  <form class="col-md-3">
+    <legend>Liste Utilisateur</legend>
     <div>
     <label for="chpNom" >Nom</label>
       <input id="champNom" />
@@ -21,10 +53,10 @@
     <label for="chpPrenom" >Prenom</label>
       <input id="champPrenom" />
     </div>
-    <button type="button" onclick="add()">Ajouter</button>
+    <button id="add" type="button" onclick="add()">Ajouter</button>
   </form>
-    <ul id="userList">
-      <li class="toSupp">Jean Dupond <button type="button" onclick="supp(0)">x</button></li>
+    <ul id="userList" class="col-md-3">
+      <li class="toSupp">Jean Dupond <button class="delete" type="button" onclick="supp(0)">x</button></li>
     </ul>
     <script>
       var users = [
@@ -75,6 +107,7 @@
         //-----------------
         var createButton = document.createElement("button");
         createButton.setAttribute("type","button");
+        createButton.class="delete";
         createButton.setAttribute("onclick","supp("+users.indexOf(objetSaisie)+")");
         createButton.textContent = "x";
         //-----------------
