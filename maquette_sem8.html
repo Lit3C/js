@@ -57,7 +57,7 @@
           p.textContent="lorem ipsum（ロレム・イプサム、略してリプサム lipsum ともいう）とは、出版、ウェブデザイン、グラフィックデザインなどの諸分野において使用されている典型的なダミーテキスト。";
 
 
-var i=1;
+var i=0;
 //-------------------------------------------------------------------BOUTON AJOUTE ARTICLE----------
 var buttonPlus = document.createElement("button");
     buttonPlus.setAttribute("type","button");
@@ -67,7 +67,8 @@ var buttonPlus = document.createElement("button");
     buttonPlus.style.width="10%";
     buttonPlus.style.margin = "0px 45%";
 //-------------------------------------------------------------------FUNCTION AJOUTE ARTICLE----------
-      function ajoute(i){
+      function ajoute(){
+          i++;
           console.log(i);
           var article = document.createElement("div");
               article.setAttribute("id","article");
@@ -110,7 +111,7 @@ var buttonPlus = document.createElement("button");
           body.appendChild(buttonPlus);
           console.log("i avant return: "+i);
   }
-      ajoute(i);
+      ajoute();
 
 
 
