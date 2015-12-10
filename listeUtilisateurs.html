@@ -89,10 +89,10 @@
 
       var i = 0;
 //-------------------------------------------------------------------------FONCTION SUPP
-      function supp(a){
-        var maLi=document.getElementById("li"+a);
-        var objetRetire = users.splice(a,1);
-        console.log("position: "+a,
+      function supp(position){
+        var maLi=document.getElementById("li"+position);
+        var objetRetire = users.splice(position,1);
+        console.log("position: "+position,
                     "objet retiré: "+objetRetire,
                    "Contenu de mon tableau d'objet users: ",
                     users);
